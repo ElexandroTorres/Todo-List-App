@@ -4,28 +4,29 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Adapter
+import android.widget.Toast
 import br.com.elexandro.todolistapp.R
 import br.com.elexandro.todolistapp.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding : ActivityMainBinding
-    private val adapter by lazy { TaskListAdapter() }
+    //private val adapter by lazy { TaskListAdapter() }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(R.layout.activity_main)
 
-        binding.recycleViewTasks.adapter = adapter
+        binding.recycleViewTasks.adapter = TaskListAdapter()
 
         insertListeners()
-
     }
 
     private fun insertListeners() {
         binding.floatingActionButtonAddTask.setOnClickListener {
-            startActivity(Intent(this, AddTaskActivity::class.java))
+            val intent = Intent(this, AddTaskActivity::class.java)
+            startActivity(intent)
         }
     }
 }

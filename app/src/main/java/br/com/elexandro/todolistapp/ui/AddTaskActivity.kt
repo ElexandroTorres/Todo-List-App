@@ -1,5 +1,6 @@
 package br.com.elexandro.todolistapp.ui
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -29,7 +30,6 @@ class AddTaskActivity : AppCompatActivity() {
         binding.textInputLayoutDate.editText?.setOnClickListener {
             val datePicker = MaterialDatePicker.Builder.datePicker()
                 .setTitleText("Selecione a data")
-                .setSelection(MaterialDatePicker.todayInUtcMilliseconds())
                 .build()
 
             datePicker.addOnPositiveButtonClickListener {
@@ -47,7 +47,7 @@ class AddTaskActivity : AppCompatActivity() {
                     .setTimeFormat(TimeFormat.CLOCK_24H)
                     .build()
 
-            timePicker.addOnNegativeButtonClickListener {
+            timePicker.addOnPositiveButtonClickListener {
                 val hour = if (timePicker.hour in 0..9) "0${timePicker.hour}" else "${timePicker.hour}"
                 val minute = if(timePicker.minute in 0..9) "0${timePicker.minute}" else "${timePicker.minute}"
                 binding.textInputLayoutHour.text = "$hour : $minute"
@@ -68,6 +68,7 @@ class AddTaskActivity : AppCompatActivity() {
                     hour = binding.textInputLayoutHour.text,
             )
             TaskDataSource.insertList(task)
+            Toast.makeText(this, "Hora: ${task.hour}", Toast.LENGTH_LONG).show()
             finish()
         }
     }

@@ -75,6 +75,7 @@
         android:layout_marginTop="32dp"
         android:layout_marginEnd="8dp"
         android:hint="Data"
+
         app:startIconDrawable="@drawable/ic_baseline_calendar"
         >
 
@@ -83,6 +84,7 @@
             android:layout_height="wrap_content"
             android:inputType="none"
             android:focusable="false"
+            android:textSize="16sp"
             />
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -97,7 +99,7 @@
         app:layout_constraintTop_toBottomOf="@id/text_input_layout_descricao"
         android:layout_marginTop="32dp"
         android:layout_marginStart="8dp"
-        android:hint="Data"
+        android:hint="Hora"
         app:startIconDrawable="@drawable/ic_access_time_24"
         >
 
@@ -106,6 +108,7 @@
             android:layout_height="wrap_content"
             android:inputType="none"
             android:focusable="false"
+            android:textSize="16sp"
             />
 
     </com.google.android.material.textfield.TextInputLayout>
