@@ -7,7 +7,7 @@ import java.util.*
 private val local = Locale("pt", "BR")
 
 fun Date.format(): String {
-    return SimpleDateFormat("dd/mm/yyyy").format(this)
+    return SimpleDateFormat("dd/MM/yyyy").format(this)
 }
 
 var TextInputLayout.text : String
